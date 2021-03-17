@@ -1,16 +1,11 @@
-<table class="table text-center table-dark shadow table-striped">
-    <thead>
-      <tr>
-        <th>Brand</th>
-        <th>Car</th>
-        <th>Color</th>
-        <th>Model Year</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let car of cars">
-        <td>{{ car.brandName }}</td>
-        <td>{{ car.carName }}</td>
-        <td>{{ car.colorName }}</td>
-        <td>{{ car.modelYear }}</td>
-      </tr>
-  </table>
+<div class="row row-cols-1 row-cols-md-3 g-4" >
+  <div class="col" *ngFor="let car of cars">
+    <div class="card">
+      <img src="https://localhost:44393/{{car.imagePath}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{car.carName}}</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
