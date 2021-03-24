@@ -1,10 +1,41 @@
-<div class="row row-cols-1 row-cols-md-3 g-4" >
-  <div class="col" *ngFor="let car of cars">
-    <div class="card">
-      <img src="https://localhost:44393/{{car.imagePath}}" class="card-img-top" alt="...">
+<div class="row">
+  <input
+    [(ngModel)]="filterCar"
+    type="text"
+    class="form-control"
+    id="filterCar"
+    placeholder="Model giriniz."
+  />
+  <app-car-filter></app-car-filter>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div *ngFor="let car of cars | carPipe: filterCar" class="col">
+    <div style="margin-top: 20px" class="card">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img *ngIf="car.imagePath!=null"src="https://localhost:44393/{{car.imagePath}}" class="d-block w-100" alt="..." />
+            <img *ngIf="car.imagePath==null" src="https://localhost:44393/Images\defaultcar.png" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+      </div>
       <div class="card-body">
-        <h5 class="card-title">{{car.carName}}</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">{{ car.carName }}</h5>
+        <p class="card-text">{{ car.brandName }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ car.colorName }}</li>
+
+        <li class="list-group-item">{{ car.modelYear }}</li>
+        <li class="list-group-item">{{ car.description }}</li>
+      </ul>
+      <div class="card-body">
+        <a routerLink="/cars/cardetail/{{ car.carId }}" class="card-link">Detaylar</a>
       </div>
     </div>
   </div>

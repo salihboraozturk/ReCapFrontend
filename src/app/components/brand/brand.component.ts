@@ -10,6 +10,8 @@ import { BrandService } from 'src/app/services/brand/brand.service';
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand: Brand;
+  clearBrand:Brand;
+  filterBrand="";
   constructor(private brandService: BrandService) {}
 
   ngOnInit(): void {
@@ -31,4 +33,16 @@ export class BrandComponent implements OnInit {
       return "list-group-item"
     }
   }
+  getAllBrandClass(){
+  if(!this.currentBrand){
+      return "list-group-item active"
+    }
+    else{
+      return "list-group-item"
+    }
+  }
+  setClearBrand(){
+    this.currentBrand=this.clearBrand;
+  }
+
 }

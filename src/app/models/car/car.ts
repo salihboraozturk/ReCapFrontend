@@ -3,7 +3,7 @@ export interface Car {
   carName: string;
   brandName: string;
   colorName:string;
-  imagePath:string;
   description:string;
   modelYear: number;
+  imagePath:string;
 }

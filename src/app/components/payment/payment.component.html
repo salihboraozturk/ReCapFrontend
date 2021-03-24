@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+        <div class="row">
+          <div class="col-50">
+            <h3>Ödeme</h3>
+            <label for="cname">Kart Sahibinin Adı:</label>
+            <input
+            [(ngModel)]="cardOwner"
+              type="text"
+              id="cardOwner"
+              name="cardname"
+              placeholder="John More Doe"
+            />
+            <label for="ccnum">Kart Numarası:</label>
+            <input
+            [(ngModel)]="cardNumber"
+              type="text"
+              id="cardNumber"
+              name="cardnumber"
+              placeholder="1111-2222-3333-4444"
+            />
+            <label for="expmonth">Son Kullanma Tarihi:</label>
+            <div class="row">
+              <div class="col-4">
+                <input 
+                [(ngModel)]="expirationMonth"
+                  type="text"
+                  id="expirationMonth"
+                  name="expyear"
+                  placeholder="2018"
+                />
+              </div>
+              <div class="col-4">
+                <input
+                [(ngModel)]="expirationYear"
+                  type="text"
+                  id="expirationYear"
+                  name="expmonth"
+                  placeholder="September"
+                />
+              </div>
+            </div>
+            <div class="col-50">
+              <label for="cvv">CVV</label>
+              <input [(ngModel)]="cvv" type="text" id="cvv" name="cvv" placeholder="352" />
+            </div>
+
+            <div class="row"></div>
+          </div>
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr" /> Bilgilerimin doğruluğunu onaylıyorum.
+        </label>
+       <button (click)="addRental()" class="btn">Ödeme Yap</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-25">
+    <div class="container">
+      <h4>
+        Cart
+        <span class="price" style="color: black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+      </h4>
+      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <hr />
+      <p>
+        Total <span class="price" style="color: black"><b>$30</b></span>
+      </p>
+    </div>
+  </div>
+</div>

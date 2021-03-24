@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Brand } from 'src/app/models/brand/brand';
 import { Car } from 'src/app/models/car/car';
+import { CarDetail } from 'src/app/models/cardetail/cardetail';
+import { CarImage } from 'src/app/models/carimage/carImage';
+import { Color } from 'src/app/models/color/color';
+import { BrandService } from 'src/app/services/brand/brand.service';
 import { CarService } from 'src/app/services/car/car.service';
+import { CarImageService } from 'src/app/services/carimage/car-image.service';
+import { ColorService } from 'src/app/services/color/color.service';
 
 @Component({
   selector: 'app-car',
@@ -10,14 +17,20 @@ import { CarService } from 'src/app/services/car/car.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  imagePath:string;
+  filterCar = '';
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private carImageService:CarImageService
   ) {}
 
   ngOnInit(): void {
+  
     this.activatedRoute.params.subscribe((params) => {
-      if (params['brandId']) {
+      if (params['brandId'] && params['colorId']) {
+        this.getCarsByFilter(params['brandId'], params['colorId']);
+      } else if (params['brandId']) {
         this.getCarsByBrand(params['brandId']);
       } else if (params['colorId']) {
         this.getCarsByColor(params['colorId']);
@@ -25,11 +38,11 @@ export class CarComponent implements OnInit {
         this.getCars();
       }
     });
-    this.getCars();
   }
   getCars() {
     this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
+      console.log(response.data);
     });
   }
   getCarsByBrand(brandId: number) {
@@ -42,7 +55,21 @@ export class CarComponent implements OnInit {
       this.cars = response.data;
     });
   }
-  getCarImagePath(car:Car){
-return car.imagePath;
+  getCarsByFilter(brandId: number, colorId: number) {
+    this.carService
+      .getCarsByFilter(brandId, colorId)
+      .subscribe((response) => {
+        this.cars = response.data;
+      });
   }
+  setPreviewImages(cars:CarDetail[]){
+    console.log(cars);
+    cars.forEach(car => {
+      this.carImageService.getCarImage(car.carId).subscribe((response) => {
+        car.imagePath = "https://localhost:44393/" + response.data[0].imagePath;
+      console.log(response.data);
+      });
+    });
+  }
+  
 }

@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Color } from 'src/app/models/color/color';
 import { ColorService } from 'src/app/services/color/color.service';
@@ -12,10 +13,13 @@ import { ColorService } from 'src/app/services/color/color.service';
 export class ColorComponent implements OnInit {
 colors:Color[]=[];
 currentColor:Color;
+clearColor:Color;
+filterColor="";
   constructor(private colorService:ColorService) { }
 
   ngOnInit(): void {
     this.getColors();
+    
   }
 getColors(){
   this.colorService.getColors().subscribe(response=>{this.colors=response.data})
@@ -30,5 +34,16 @@ getCurrentColorClass(color:Color){
   else{
     return "list-group-item"
   }
+}
+getAllColorClass(){
+  if(!this.currentColor){
+    return "list-group-item active"
+  }
+  else{
+    return "list-group-item"
+  }
+}
+setClearCurrentColor(){
+  this.currentColor=this.clearColor;
 }
 }
