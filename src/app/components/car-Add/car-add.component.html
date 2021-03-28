@@ -1,0 +1,95 @@
+<div class="contet">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5>Araç Ekle</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="carAddForm">
+          <div class="form-group">
+            <div class="mb-3">
+              <label for="brandId">Marka:</label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="brandId"
+              >
+                <option selected>Bir marka seçiniz</option>
+                <option *ngFor="let brand of brands" [ngValue]="brand.brandId">
+                  {{ brand.brandName }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="colorId">Renk:</label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="colorId"
+              >
+                <option selected>Bir renk seçiniz</option>
+                <option *ngFor="let color of colors" [ngValue]="color.colorId">
+                  {{ color.colorName }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="modelYear">Model Yılı:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="modelYear"
+                formControlName="modelYear"
+                placeholder="Model Yılı"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dailyPrice">Günlük Ücret:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="dailyPrice"
+                formControlName="dailyPrice"
+                placeholder="Günlük Ücret"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="carName">Araç Modeli:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="carName"
+                formControlName="carName"
+                placeholder="Araç Modeli"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="description">Detay:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="description"
+                formControlName="description"
+                placeholder="Detay"
+              />
+            </div>
+          </div>
+        </form>
+        <form [formGroup]="imageAddForm">
+          <div class="form-group">
+            <input
+              formControlName="file"
+              type="file"
+              (change)="uploadFile($event)"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="add()">
+          Araç Ekle
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

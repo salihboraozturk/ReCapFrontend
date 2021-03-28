@@ -1,4 +1,11 @@
+  
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user/user';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
+import { UserService } from 'src/app/services/user/user.service';
+
 
 @Component({
   selector: 'app-navi',
@@ -6,10 +13,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navi.component.css']
 })
 export class NaviComponent implements OnInit {
+  currentUserId:number;
+  user:User;
 
-  constructor() { }
+  constructor(
+    private authService:AuthService,
+    private userService:UserService,
+    private localStorageService:LocalStorageService,
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
+    this.currentUserId = this.authService.getUserId();
+    this.getUserDetail();
   }
 
+  isAuthenticated(){
+    return this.authService.isAuthenticated();
+  }
+
+  getUserDetail(){
+    this.userService.getUserById(this.currentUserId).subscribe(response => {
+      this.user = response.data;
+    });
+  }
+
+  logOut(){
+    this.localStorageService.clear();
+    this.router.navigate(["/cars"])
+  }
 }

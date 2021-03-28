@@ -8,7 +8,11 @@ import { BrandComponent } from './components/brand/brand.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { ColorComponent } from './components/color/color.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,8 +23,16 @@ import { ColorPipePipe } from './pipes/color/color-pipe.pipe';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CarFilterComponent } from './components/car-filter/car-filter/car-filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { CarAddComponent } from './components/car-Add/car-add/car-add.component';
+
 import { from } from 'rxjs';
+import { CarAddComponent } from './components/car-Add/car-add.component';
+import { CarUpdateComponent } from './components/car-Update/car-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +50,11 @@ import { from } from 'rxjs';
     CarFilterComponent,
     PaymentComponent,
     CarAddComponent,
+    CarUpdateComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +64,12 @@ import { from } from 'rxjs';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass:"toast-bottom-right"
-    })
+      positionClass: 'toast-bottom-right',
+    }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

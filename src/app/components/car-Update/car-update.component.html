@@ -1,0 +1,62 @@
+<div class="content row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header" style="text-align: center;">
+                <h5>Aracı Güncelle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carUpdateForm" *ngIf="car">
+                    <div class="form-group mb-3">
+                        <label class="col-form-label">Marka Seçiniz</label>
+                        <select formControlName="brandId" class="form-select" aria-label="Default select example">
+                            <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="col-form-label">Renk Seçiniz</label>
+                        <select formControlName="colorId" class="form-select" aria-label="Default select example">
+                            <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="col-form-label">Model Yılı:</label>
+                        <input type="number" id="modelYear" formControlName="modelYear" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="col-form-label">Günlük Ücreti:</label>
+                        <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="col-form-label">Açıklaması:</label>
+                        <input type="text" id="description" formControlName="description" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button style="width: 100%;" class="btn btn-fill btn-primary" (click)="update()">Güncelle</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div *ngIf="car" class="card">
+            <div class="card-header" style="text-align: center;">
+                <h5>Aracın Mevcut Bilgileri</h5>
+            </div>
+            <div class="card-body">
+                <div class="card-image-top">
+                    <img *ngIf="car.imagePath==null" src="{{defaultImage}}" alt="{{car.carId}}" style="width: 100%;">
+                    <img *ngIf="car.imagePath!=null" style="width: 100%; height: 100%; border-radius: 4px;" src="{{apiUrl+car.imagePath}}" alt="">
+                </div>
+                <div class="card-detail mt-3">
+                    <ul style="text-align: center; padding-left: 8px; padding-right: 8px;" class="list-group-flush">
+                        <li class="list-group-item"><strong style="float: left;">Markası :</strong>{{car.brandName}}</li>
+                        <li class="list-group-item"><strong style="float: left;">Rengi :</strong>{{car.colorName}}</li>
+                        <li class="list-group-item"><strong style="float: left;">Modeli :</strong>{{car.modelYear}}</li>
+                        <li class="list-group-item"><strong style="float: left;">Günlük Ücreti :</strong>{{car.dailyPrice |currency}}</li>
+                        <li class="list-group-item"><strong style="float: left;">Açıklaması :</strong>{{car.description}}</li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

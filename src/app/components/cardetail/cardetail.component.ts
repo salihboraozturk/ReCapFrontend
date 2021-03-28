@@ -15,6 +15,7 @@ export class CardetailComponent implements OnInit {
   carDetail: CarDetail[] = [];
   car: CarDetail;
   rentable:boolean;
+  carId:number;
   imageUrl = "https://localhost:44393";
   constructor(
     private carImageService: CarImageService,
@@ -40,7 +41,10 @@ export class CardetailComponent implements OnInit {
   getCarDetailsById(carId: number) {
     this.carService.getCarDetailsById(carId).subscribe((response) => {
       this.car = response.data[0];
-      this.rentable=response.data[0].status
+      this.rentable=response.data[0].status;
+      this.carId=response.data[0].carId;
+      console.log(carId);
+    
     });
   }
 
