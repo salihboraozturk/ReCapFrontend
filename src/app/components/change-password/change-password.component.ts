@@ -19,7 +19,7 @@ export class ChangePasswordComponent implements OnInit {
     private authService: AuthService,
     private toastrService: ToastrService
   ) {}
-
+userId:number;
   ngOnInit(): void {
     this.createChangePasswordForm();
   }
@@ -32,9 +32,10 @@ export class ChangePasswordComponent implements OnInit {
   changePassword() {
     if (this.changePasswordForm.valid) {
       let passwordModel = Object.assign(
-        { userId: this.authService.getUserId },
+        { userId: this.authService.getUserId() },
         this.changePasswordForm.value
       );
+      console.log(passwordModel);
       this.authService.changePassword(passwordModel).subscribe((response) => {
         this.toastrService.success(response.messages);
       });

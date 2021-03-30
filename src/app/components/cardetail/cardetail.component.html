@@ -1,8 +1,63 @@
-<div *ngIf="car" class="col-lg-7 mx-auto">
-  <button  class="btn btn-primary" routerLink="/cars/update/{{carId}}">Güncelle</button>
+
+<div *ngIf="car">
+<h1>{{car.brandName}} {{car.carName}}</h1>
+<div class="row">
+<div class="col-md-8">
+  <div class="card">
+  <div class="row g-0" style="padding:20px; padding-bottom: 20px;">
+    <div class="image" style="margin-bottom: 20px;">
+        <div  id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button *ngFor="let image of carImages;let i = index" type="button" data-bs-target="#carouselExampleIndicators" attr.data-bs-slide-to="{{i}}" [class]="getButtonClass(image)" aria-current="true" aria-label="Slide 1"></button>
+          </div>
+          <div class="carousel-inner">
+            <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
+              <img src="{{apiUrl+image.imagePath}}" alt="Image" class="d-block ">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+    <div class="text">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Araç Bilgileri</strong></h5>
+        <p class="card-text"><strong>Yakıt-Vites:</strong>{{car.description}}</p>
+        <p class="card-text"><strong>Renk:</strong>{{car.colorName}}</p>
+        <p class="card-text"><strong>Model Yılı:</strong>{{car.modelYear}}</p>
+        <p class="card-text"><strong>Günlük Ücret:</strong>{{car.dailyPrice}}</p>
+        <p class="card-text"><strong>Gerekli Findex Puanı:</strong>{{car.minFindex}}</p>
+        </div>
+      
+    </div>
+  </div>
+  </div>
+
+
+  
+</div>
+</div>
+ <div class="rentable">
+  <button style="width:150px; position:absolute; top: 130px; right: 350px;  " *ngIf="rentable" routerLink="/rental/{{ car.carId }}"  type="button" class="mybtn btn">Kirala</button>
+  <div style="margin-top: 10px; position:absolute; top: 130px; right:535px; color: red;" class="fas fa-exclamation-circle" *ngIf="!rentable">
+  Araç kiralanmaya uygun değil.
+  </div>
+</div>
+</div>
+
+<!-- <div *ngIf="car" class="col-lg-7 mx-auto">
+  <button *ngIf="!car" class="btn btn-primary" routerLink="/cars/update/{{carId}}">Güncelle</button>
   <div
-    id="carImageSlide"
-    class="carousel slide carousel-fade"
+  id="carImageSlide"
+    class="carousel slide carousel-fade col-md-8"
     data-bs-ride="carousel"
   >
     <div
@@ -43,7 +98,7 @@
       </button>
     </div>
 
-    <table *ngIf="car" class="table table-striped mt-2">
+    <table *ngIf="car" class="col-md-4" >
       <tbody>
         <tr>
           <th scope="row">Marka</th>
@@ -75,10 +130,12 @@
         </tr>
       </tbody>
     </table>
+
+
     <div class="card-body d-grid gap-2 mx-auto">
-      <h5 *ngIf="!rentable" class="alert alert-danger">
-        Araç şuanda kiralanamaz.
-      </h5>
+     
+ 
+     <div *ngIf="car.minFindex<=userFindex">
       <div *ngIf="rentable" class="btn-group me-2">
         <button
           type="button"
@@ -88,6 +145,17 @@
           Kirala
         </button>
       </div>
+      
+      <h5 *ngIf="!rentable" style="color:white" >
+        Araç şuanda kiralanamaz.
+      </h5>
     </div>
-  </div>
+   
+      <h5>
+    Findex Puanı Yetersiz
+      </h5>
+  
 </div>
+
+  </div>
+</div> -->

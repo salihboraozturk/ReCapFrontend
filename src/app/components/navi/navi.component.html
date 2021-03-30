@@ -1,16 +1,18 @@
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg" >
   <div class="container-fluid">
-    <a  class="navbar-brand" href="#">CarRental</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <div class="logo">
+    <img src="\assets\images\logo.png">
+  </div>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a  class="nav-link active" aria-current="page" routerLink="/cars">Ana Sayfa</a>
+          <a  class="nav-link active" aria-current="page"style="color:black;margin-left:5px" routerLink="/cars">Ana Sayfa</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link" href="#">Link</a>
+          <a  class="nav-link" style="color:black" href="#">Link</a>
         </li>
        <!-- <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -21,21 +23,27 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form> -->
       <div *ngIf="!isAuthenticated()">
-        <button  class="btn btn-primary mybtn" routerLink="/register">Üye Ol</button>
-        <button style="margin-left: 10px;" class="btn btn-primary mybtn" routerLink="/login">Giriş Yap</button>
+        <button  class="btn mybtn" routerLink="/register">Üye Ol</button>
+        <button style="margin-left: 10px; background-color:#3f3f3f; color:#f5ca29;" class="btn mybtn" routerLink="/login">Giriş Yap</button>
       </div>
       <div *ngIf="isAuthenticated()">
         <div class="nav-item dropdown">
           <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i style="margin-right: 10px;" class="fas fa-user-circle"></i><strong>{{user.firstName}} {{user.lastName}}</strong>
+            <i style="margin-right: 10px;" class="fas fa-user-circle"></i><strong *ngIf="user">{{user.firstName}} {{user.lastName}}</strong>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="profile"><i class="fas fa-users-cog"></i> Profil</a></li>
+            <li><a class="dropdown-item" routerLink="cards"><i class="fas fa-users-cog"></i> Kayıtlı Kartlarım</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Çıkış</a></li>
           </ul>
+          
         </div>
+       
       </div>
+     
     </div>
+ 
   </div>
+  
 </nav>

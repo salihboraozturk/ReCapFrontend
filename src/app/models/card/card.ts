@@ -1,4 +1,5 @@
-export interface Payment{
+export interface Card{
+userId:number;
 cardOwner:string;
 cardNumber:string;
 expirationYear:number;

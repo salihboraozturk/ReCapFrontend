@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthInterceptor } from 'src/app/interceptors/auth.interceptor';
 import { CarDetail } from 'src/app/models/cardetail/cardetail';
 import { CarImage } from 'src/app/models/carimage/carImage';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { CarService } from 'src/app/services/car/car.service';
 import { CarImageService } from 'src/app/services/carimage/car-image.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-cardetail',
@@ -16,11 +19,14 @@ export class CardetailComponent implements OnInit {
   car: CarDetail;
   rentable:boolean;
   carId:number;
-  imageUrl = "https://localhost:44393";
+  userFindex:number;
+  apiUrl = "https://localhost:44393";
   constructor(
     private carImageService: CarImageService,
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
+    private userService:UserService,
+    private authService:AuthService,
     private router:Router
   ) {}
 
@@ -40,13 +46,28 @@ export class CardetailComponent implements OnInit {
   }
   getCarDetailsById(carId: number) {
     this.carService.getCarDetailsById(carId).subscribe((response) => {
-      this.car = response.data[0];
-      this.rentable=response.data[0].status;
-      this.carId=response.data[0].carId;
+      this.car = response.data;
+      this.rentable=response.data.status;
+      this.carId=response.data.carId;
       console.log(carId);
     
     });
   }
 
-  
+
+  getCurrentImageClass(image:CarImage){
+    if (image == this.carImages[0]) {
+      return "carousel-item active"
+    } else {
+      return "carousel-item"
+    }
+  }
+
+  getButtonClass(image:CarImage){
+    if (image == this.carImages[0]) {
+      return "active"
+    } else {
+      return ""
+    }
+  }
 }

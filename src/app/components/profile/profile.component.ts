@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   customerUpdateForm: FormGroup;
   user: User;
   customer: Customer;
+  findex:number;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -76,6 +77,7 @@ export class ProfileComponent implements OnInit {
       .getUserById(this.authService.getUserId())
       .subscribe((response) => {
         this.user = response.data;
+        this.findex=this.user.findex;
         this.userUpdateForm.patchValue(response.data);
       });
   }

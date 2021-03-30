@@ -19,4 +19,8 @@ export class UserService {
     let newPath = this.apiUrl + 'users/getuserbyid?id=' + userId;
     return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
+  checkFindex(userId:number):Observable<ResponseModel>{
+    let newPath = this.apiUrl + 'users/checkfindex?userId='+userId;
+    return this.httpClient.get<ResponseModel>(newPath);
+  }
 }

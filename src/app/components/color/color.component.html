@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <input [(ngModel)]="filterColor" type="text" class="form-control" id="filterColor" placeholder="Renk giriniz.">
+  <input [(ngModel)]="filterColor" type="text" class="form-control" id="filterColor" style="background-color:#3F3F3F; color:white;" placeholder="Renk giriniz.">
 </div>
 <ul class="list-group">
   <li [class]="getAllColorClass()" (click)="setClearCurrentColor()" routerLink="cars">Tüm Renkler</li>

@@ -16,7 +16,7 @@ import { RentalService } from 'src/app/services/rental/rental.service';
   providers:[DatePipe]
 })
 export class RentalComponent implements OnInit {
-  cars: CarDetail[]=[];
+  car: CarDetail;
   rentals: Rental[] = [];
   minDate:string|null;
   maxDate:string|null;
@@ -62,14 +62,13 @@ export class RentalComponent implements OnInit {
   }
   getCarDetails(carId: number) {
     this.carService.getCarDetailsById(carId).subscribe((response) => {
-      this.cars = response.data;
-      this.carId=carId;
+      this.car = response.data;
     });
   }
   addRental(){
     let RentalModel ={
       customerId:this.customerId,
-      carId:this.carId,
+      carId:this.car.carId,
       rentDate:this.rentDate,
       returnDate:this.returnDate
     };

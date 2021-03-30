@@ -1,0 +1,25 @@
+th{
+    color:white
+}
+img{
+    width:100%;
+    height:100%;
+}
+.image{
+    width: 50%;
+}
+
+.text{
+width: 256px;
+}
+.card{
+    width: 1080px;
+
+}
+.btn{
+    background-color:#f5ca29 ;
+}
+#carouselExampleIndicators{
+    width:480px;
+    height:250px;
+}

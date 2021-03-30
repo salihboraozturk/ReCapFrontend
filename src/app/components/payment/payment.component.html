@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form [formGroup]="paymentForm">
         <div class="row">
           <div class="col-50">
             <h3>Ödeme</h3>
             <label for="cname">Kart Sahibinin Adı:</label>
             <input
-            [(ngModel)]="cardOwner"
+            formControlName="cardOwner"
               type="text"
               id="cardOwner"
               name="cardname"
@@ -15,46 +15,49 @@
             />
             <label for="ccnum">Kart Numarası:</label>
             <input
-            [(ngModel)]="cardNumber"
+            formControlName="cardNumber"
               type="text"
               id="cardNumber"
               name="cardnumber"
               placeholder="1111-2222-3333-4444"
             />
             <label for="expmonth">Son Kullanma Tarihi:</label>
-            <div class="row">
-              <div class="col-4">
+            <div class="row" >
+              <div class="col-2">
                 <input 
-                [(ngModel)]="expirationMonth"
-                  type="text"
+                formControlName="expirationMonth"
+                  type="number"
                   id="expirationMonth"
                   name="expyear"
                   placeholder="2018"
                 />
               </div>
-              <div class="col-4">
+              <div class="col-2" style="width:0px;">
                 <input
-                [(ngModel)]="expirationYear"
-                  type="text"
+                formControlName="expirationYear"
+                  type="number"
                   id="expirationYear"
                   name="expmonth"
-                  placeholder="September"
+                  placeholder="Year"
                 />
               </div>
             </div>
-            <div class="col-50">
+            <div class="col-50" style="margin-top:5px;margin-bottom:5px;">
               <label for="cvv">CVV</label>
-              <input [(ngModel)]="cvv" type="text" id="cvv" name="cvv" placeholder="352" />
+              <input formControlName="cvv" type="number" id="cvv" name="cvv" placeholder="352" />
             </div>
 
             <div class="row"></div>
           </div>
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr" /> Bilgilerimin doğruluğunu onaylıyorum.
-        </label>
-       <button (click)="addRental()" class="btn">Ödeme Yap</button>
-      </form>
+</form>
+<div class="check">
+  <div class="form-check form-switch">
+      <input [(ngModel)]="isChecked" class="form-check-input" type="checkbox" id="isChecked" checked>
+      <label class="form-check-label" for="isChecked">Kredi kartımı kaydet</label>
+    </div>
+</div>
+     <button (click)="checkPayment()" class="btn">Ödeme Yap</button>
     </div>
   </div>
 

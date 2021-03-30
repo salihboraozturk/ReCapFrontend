@@ -80,7 +80,7 @@ export class CarUpdateComponent implements OnInit {
   }
   getCarDetails(carId:number){
     this.carService.getCarDetailsById(carId).subscribe(response => {
-      this.car = response.data[0];
+      this.car = response.data;
     })
   }
   getBrands(){

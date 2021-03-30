@@ -8,4 +8,5 @@ export interface CarDetail {
   description: string;
   status:boolean;
   imagePath:string;
+  minFindex:number;
 }
