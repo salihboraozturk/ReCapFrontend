@@ -6,11 +6,13 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { Card } from 'src/app/models/card/card';
 import { Payment } from 'src/app/models/payment/payment';
 import { Rental } from 'src/app/models/rental/rental';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { CarService } from 'src/app/services/car/car.service';
 import { CardService } from 'src/app/services/card/card.service';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 import { RentalService } from 'src/app/services/rental/rental.service';
@@ -34,15 +36,17 @@ export class PaymentComponent implements OnInit {
     private authService: AuthService,
     private toastrService: ToastrService,
     private formBuilder: FormBuilder,
-    private userService:UserService
+    private carService:CarService,
+    private userService:UserService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       if (params['rental']) {
         this.rental = JSON.parse(params['rental']);
-        this.createPaymentForm();
-        console.log(this.rental)
+        this.createPaymentForm(); 
+        
       }
     });
   }
@@ -68,6 +72,8 @@ export class PaymentComponent implements OnInit {
         this.toastrService.success(response.messages, 'Başarılı');
         this.addRental();
         this.checkFindex();
+        this.router.navigate(["/cars"]);
+       
       });
     } else {
       this.toastrService.error('Lütfen formu doğru doldurunuz.');
@@ -84,6 +90,7 @@ export class PaymentComponent implements OnInit {
       });
     }
   }
+
   checkFindex(){
     this.userService.checkFindex(this.authService.getUserId()).subscribe(response=>{
       this.toastrService.info(response.messages);
