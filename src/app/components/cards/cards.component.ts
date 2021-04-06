@@ -32,4 +32,11 @@ getCardsByUser(){
     this.cards=response.data;
   })
 }
+delete(card:Card){
+  this.cardService.delete(card).subscribe(response=>{
+    this.toastrService.success("Kart silindi.");
+    window.location.reload();
+
+  })
+}
 }

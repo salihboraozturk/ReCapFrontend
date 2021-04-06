@@ -1,4 +1,4 @@
-<div class="contet">
+<div class="context" style="margin-bottom:50px;">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
@@ -73,6 +73,16 @@
                 placeholder="Detay"
               />
             </div>
+            <div class="mb-3">
+              <label for="description">Minimum Findex Puanı:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="minFindex"
+                formControlName="minFindex"
+                placeholder="Minimum Findex Puanı"
+              />
+            </div>
           </div>
         </form>
         <form [formGroup]="imageAddForm">
@@ -81,7 +91,7 @@
               formControlName="file"
               type="file"
               (change)="uploadFile($event)"
-            />
+              multiple>
           </div>
         </form>
       </div>

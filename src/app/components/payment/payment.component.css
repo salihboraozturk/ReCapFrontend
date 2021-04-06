@@ -28,7 +28,7 @@
   }
   
   .container {
-    background-color: #f2f2f2;
+    background-color: #3f3f3f;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
@@ -45,6 +45,7 @@
   label {
     margin-bottom: 10px;
     display: block;
+    color: white;
   }
   
   .icon-container {
@@ -54,8 +55,8 @@
   }
   
   .btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #f5ca29;
+    color: #3f3f3f  ;
     padding: 12px;
     margin: 10px 0;
     border: none;
@@ -64,9 +65,10 @@
     cursor: pointer;
     font-size: 17px;
   }
+
   
   .btn:hover {
-    background-color: #45a049;
+    background-color: #f5c92996;
   }
   
   span.price {
@@ -74,12 +76,4 @@
     color: grey;
   }
   
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-  @media (max-width: 800px) {
-    .row {
-      flex-direction: column-reverse;
-    }
-    .col-25 {
-      margin-bottom: 20px;
-    }
-  }
+  

@@ -23,7 +23,7 @@ export class CarAddComponent implements OnInit {
   brands: Brand[];
   colors: Color[];
   imageAddForm: FormGroup;
-  imageFile: File;
+  imageFiles: File[];
   carId: number;
 
   constructor(
@@ -49,6 +49,7 @@ export class CarAddComponent implements OnInit {
       dailyPrice: ['', Validators.required],
       carName: ['', Validators.required],
       description: ['', Validators.required],
+      minFindex: ['', Validators.required]
     });
   }
   add() {
@@ -60,6 +61,7 @@ export class CarAddComponent implements OnInit {
           this.toastrService.success(response.messages, 'Başarılı');
           this.carId = response.data.carId;
           this.addImage();
+          this.toastrService.success("Resim ekleme başarılı", 'Başarılı');
         },
         (responseError) => {
           if (responseError.error.error.length > 0) {
@@ -84,7 +86,7 @@ export class CarAddComponent implements OnInit {
   }
 
   uploadFile(event: any) {
-    this.imageFile = event.target.files[0];
+    this.imageFiles = event.target.files;
   }
 
   getBrands() {
@@ -100,11 +102,13 @@ export class CarAddComponent implements OnInit {
   }
   addImage() {
     if (this.imageAddForm.valid) {
-      this.carImageService
-        .add(this.carId, this.imageFile)
-        .subscribe((response) => {
-          this.toastrService.success(response.messages, 'Başarılı');
-        });
+      for (let i = 0; i < this.imageFiles.length; i++) {
+        this.carImageService
+          .add(this.carId, this.imageFiles[i])
+          .subscribe((response) => {
+            
+          });
+      }
     }
   }
 }

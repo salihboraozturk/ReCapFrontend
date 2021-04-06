@@ -13,6 +13,10 @@
                         </select>
                     </div>
                     <div class="form-group mb-3">
+                        <label class="col-form-label">Model Giriniz:</label>
+                        <input type="text" id="carName" formControlName="carName" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
                         <label class="col-form-label">Renk Seçiniz</label>
                         <select formControlName="colorId" class="form-select" aria-label="Default select example">
                             <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
@@ -30,8 +34,25 @@
                         <label class="col-form-label">Açıklaması:</label>
                         <input type="text" id="description" formControlName="description" class="form-control">
                     </div>
+                    <div class="form-group mb-3">
+                        <label class="col-form-label">Minimum Findex Puanı:</label>
+                        <input type="number" id="minFindex" formControlName="minFindex" class="form-control">
+                    </div>
                 </form>
-            </div>
+                <form [formGroup]="imageUpdateForm" *ngIf="car">
+                    <div class="form-group">
+                        <input type="file" formControlName="file" (change)="uploadFile($event)">
+                    </div>
+                </form>
+                <div class="images-Update" style="margin-top: 10px;">
+                    <p>Güncellemek istediğiniz resmi seçiniz :</p>
+                    <ul style="list-style: none;">
+                        <li [class]="getCurrentImageClass(image)" *ngFor="let image of carImages" style="float: left; margin-left: 10px;" (click)="setCurrentCarImageId(image)">
+                            <img src="{{apiUrl + image.imagePath}}" width="100px" alt="">
+                        </li>
+                    </ul>
+                </div>
+           </div>
             <div class="card-footer">
                 <button style="width: 100%;" class="btn btn-fill btn-primary" (click)="update()">Güncelle</button>
             </div>

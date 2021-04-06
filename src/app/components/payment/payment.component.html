@@ -1,40 +1,49 @@
-<div class="row">
+<div class="row" style="height: 697px">
   <div class="col-75">
     <div class="container">
       <form [formGroup]="paymentForm">
         <div class="row">
           <div class="col-50">
-            <h3>Ödeme</h3>
+            <h3 style="color: #f5ca29">Ödeme</h3>
             <label for="cname">Kart Sahibinin Adı:</label>
             <input
-            formControlName="cardOwner"
+              formControlName="cardOwner"
               type="text"
               id="cardOwner"
               name="cardname"
-              placeholder="John More Doe"
+              placeholder="Salih Bora Öztürk"
             />
             <label for="ccnum">Kart Numarası:</label>
             <input
-            formControlName="cardNumber"
+              formControlName="cardNumber"
               type="text"
               id="cardNumber"
               name="cardnumber"
               placeholder="1111-2222-3333-4444"
             />
             <label for="expmonth">Son Kullanma Tarihi:</label>
-            <div class="row" >
-              <div class="col-2">
-                <input 
-                formControlName="expirationMonth"
+            <div class="row">
+              <div class="month">
+                <input
+                  style="width: 80px; text-align: center"
+                  formControlName="expirationMonth"
                   type="number"
                   id="expirationMonth"
                   name="expyear"
-                  placeholder="2018"
+                  placeholder="Month"
                 />
               </div>
-              <div class="col-2" style="width:0px;">
+              <a style="position: absolute; margin-left: 88px">/</a>
+              <div>
                 <input
-                formControlName="expirationYear"
+                  style="
+                    width: 80px;
+                    text-align: center;
+                    position: absolute;
+                    top: 362px;
+                    right: 1400px;
+                  "
+                  formControlName="expirationYear"
                   type="number"
                   id="expirationYear"
                   name="expmonth"
@@ -42,42 +51,40 @@
                 />
               </div>
             </div>
-            <div class="col-50" style="margin-top:5px;margin-bottom:5px;">
-              <label for="cvv">CVV</label>
-              <input formControlName="cvv" type="number" id="cvv" name="cvv" placeholder="352" />
+            <div
+              class="col-25"
+              style="position: absolute; top: 328px; right: 1250px"
+            >
+              <label for="cvv">CVV:</label>
+              <input
+                style="width: 70px; text-align: center"
+                formControlName="cvv"
+                type="number"
+                id="cvv"
+                name="cvv"
+                placeholder="123"
+              />
             </div>
 
             <div class="row"></div>
           </div>
         </div>
-</form>
-<div class="check">
-  <div class="form-check form-switch">
-      <input [(ngModel)]="isChecked" class="form-check-input" type="checkbox" id="isChecked" checked>
-      <label class="form-check-label" for="isChecked">Kredi kartımı kaydet</label>
-    </div>
-</div>
-     <button (click)="checkPayment()" class="btn">Ödeme Yap</button>
-    </div>
-  </div>
-
-  <div class="col-25">
-    <div class="container">
-      <h4>
-        Cart
-        <span class="price" style="color: black">
-          <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
-        </span>
-      </h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-      <hr />
-      <p>
-        Total <span class="price" style="color: black"><b>$30</b></span>
-      </p>
+      </form>
+      <div style="margin-top: 10px" class="check">
+        <div class="form-check form-switch">
+          <input
+            [(ngModel)]="isChecked"
+            class="form-check-input"
+            type="checkbox"
+            id="isChecked"
+            checked
+          />
+          <label class="form-check-label" for="isChecked"
+            >Kredi kartımı kaydet</label
+          >
+        </div>
+      </div>
+      <button (click)="checkPayment()" class="btn">Ödeme Yap</button>
     </div>
   </div>
 </div>

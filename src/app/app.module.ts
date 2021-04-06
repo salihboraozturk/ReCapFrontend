@@ -33,6 +33,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { CardsComponent } from './components/cards/cards.component';
     RegisterComponent,
     ProfileComponent,
     ChangePasswordComponent,
-    CardsComponent
+    CardsComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

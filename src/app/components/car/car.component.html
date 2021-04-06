@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="container" style="margin-bottom: 100px">
   <div class="row">
     <div class="col-md-3">
       <br />
@@ -25,41 +24,47 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div *ngFor="let car of cars | carPipe: filterCar" class="col">
           <a routerLink="/cars/cardetail/{{ car.carId }}">
-          <div class="card">
-            <div class="card-image">
-              <img
-                *ngIf="car.imagePath != null"
-                src="https://localhost:44393/{{ car.imagePath }}"
-                class="d-block w-100"
-                alt="..."
-              />
-              <img
-                *ngIf="car.imagePath == null"
-                src="https://localhost:44393/Images\dene.png"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
+            <div class="card">
+              <div class="card-image">
+                <img
+                  *ngIf="car.imagePath != null"
+                  src="https://localhost:44393/{{ car.imagePath }}"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <img
+                  *ngIf="car.imagePath == null"
+                  src="https://localhost:44393/Images\dene.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
 
-            <div class="card-text" style="margin-left: 10px;">
-              <h3>{{ car.modelYear }}</h3>
-              <h2>{{ car.brandName }} {{ car.carName }}</h2>
-              <h6>Gerekli Findex Puanı:{{ car.minFindex }}</h6>
-            </div>
+              <div class="card-text" style="margin-left: 10px">
+                <h3>{{ car.modelYear }}</h3>
+                <h2>{{ car.brandName }} {{ car.carName }}</h2>
+              </div>
 
-            <div class="card-stats">
-              <div class="stat">
-                <div class="value"></div>
+              <div class="card-stats">
+                <div class="stat">
+                  <div class="value"></div>
+                </div>
+                <div class="stat">
+                  <div class="value">{{ car.dailyPrice }}TL</div>
+                </div>
+                <div class="stat">
+                  <div class="value"></div>
+                </div>
               </div>
-              <div class="stat">
-                <div class="value">{{ car.dailyPrice | currency }}</div>
-              </div>
-              <div class="stat">
-                <div class="value"></div>
+              <div class="details">
+                <div class="center">
+                  <h1>
+                    Gerekli Findex Puanı:<br /><span>{{ car.minFindex }}</span>
+                  </h1>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
         </div>
       </div>
     </div>

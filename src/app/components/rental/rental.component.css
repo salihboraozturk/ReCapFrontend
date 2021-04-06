@@ -1,8 +1,67 @@
-body{
-    font-family:sans-serif;
-   }
-   thead{
-    background-color:#20C4F0 ;
-    color:#fff;
-    text-transform: uppercase;
+body {
+  font-family: sans-serif;
+}
+thead {
+  background:#f5ca29;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+
+.image img{
+    height: 200px;
+}
+.tablearac{
+    width: 500px;
+    height: 300px;
+}
+
+.card{
+    width: 650px;
+    height: 235px;
+    background-color:#3f3f3f ;
+}
+.card-body{
+    position:absolute;
+    top:20px;
+    right: 50px;
+}
+.bilgi{
+    width: 350px;
+    position:absolute;
+    top:80px;
+    right:550px;
+    border-radius: 15px;
+    background-color:#3f3f3f ;
+}
+
+.bilgi{
+    width: 325px;
+    height: 235px;
+    background-color:#3f3f3f ;
+}
+.card .mb-12{
+position:absolute;
+right: 750px;
+}
+.kirabilgi{
+    position:absolute;
+    right: 750px;   
+}
+.button{
+    background-color: #f5ca29;
+    width: 100px;
+border-radius: 15px;
+    text-align: center;
+    position:absolute;
+    right: 10px;
+    top:180px;
+} 
+label{
+    color: white;
+}
+.findexerror{
+    color: red;
+    margin-top:10px;
+    margin-left:75px;
 }

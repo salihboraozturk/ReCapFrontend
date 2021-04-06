@@ -22,5 +22,15 @@ export class CarImageService {
     let newPath = this.apiUrl + 'CarImages/CarImageAdd';
     return this.httpClient.post<ResponseModel>(newPath, formData);
   }
+  update(carId:number,imageFile:File,imageId:number):Observable<ResponseModel>{
+    const formData = new FormData();
+    formData.append("Id",imageId.toString());
+    formData.append("carId",carId.toString());
+    formData.append("Image",imageFile)
+    console.log(formData)
+
+    let newPath = this.apiUrl + "carimages/update";
+    return this.httpClient.post<ResponseModel>(newPath,formData);
+  }
   
 }

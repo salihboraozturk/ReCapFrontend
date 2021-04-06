@@ -35,3 +35,30 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+  .login{
+    position:absolute;
+    top:100px;
+    right: 750px;
+    height: 600px;
+    width: 400px;
+    background-color: #3f3f3f;
+    border-radius: 15px;
+  }
+  .logo{
+    width: 105px;
+    height: 105px;
+    position:absolute;
+    top:50px;
+    right: 150px;
+  }
+  .anahtar{
+    position: absolute;
+    top:100px;
+    right:0px;
+  }
+  .button{
+    width: 150px;
+    margin-left: 125px;
+    background-color:#f5ca29 ;
+    border-radius: 15px;
+  }

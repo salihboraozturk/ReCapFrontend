@@ -1,6 +1,10 @@
 .navbar{
     background-color: #f5ca29;
+
 }
 a{
     cursor: pointer;
+}
+.dropdown-menu :hover{
+background-color:#f5ca29;
 }

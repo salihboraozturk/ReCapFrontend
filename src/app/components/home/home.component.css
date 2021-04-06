@@ -1,0 +1,156 @@
+
+.carousel-inner{
+    border-radius: 5px 5px 5px 5px;
+}
+/* body {
+  font-family: sans-serif;
+}
+thead {
+  background-color: #20c4f0;
+  color: #fff;
+  text-transform: uppercase;
+} */
+.card {
+    display: grid;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 15px;
+    background: #3f3f3f;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    width: 300px;
+    height: 390px;
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin-top: 10px;
+
+  
+  }
+  .card-image {
+    grid-area: image;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+  }
+  .card-image img {
+    height: 200px;
+    width: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color:white;
+  }
+  
+  
+  /* .card-image .card-image img .card-stats .card-text p :hover {
+  visibility: hidden;
+  } */
+  
+  .card-text {
+    grid-area: text;
+    height: 150px;
+    
+  }
+  .card-text p {
+    text-align: center;
+    color: #12161c;
+    font-size: 15px;
+  
+    
+  }
+  .card-text h2 {
+  
+      text-align: left;
+    font-size: 30px;
+    color: #f5ca29;
+    position:absolute;
+    top:240px;
+    font-family:12px "Lucida Grande","LucidaGrande",Arial,sans-serif;
+  }
+  .card-text h3 {
+      margin-top:10px ;
+      text-align: left;
+      font-family:12px "Lucida Grande","LucidaGrande",Arial,sans-serif;
+    color:white;
+  }
+  .card-text h6 {
+      margin-top:35px;
+      text-align: left;
+    color: white;
+    
+  }
+  .card-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f5ca29;
+    width:300px;
+    height: 40px;
+    
+  }
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    height: 40px;
+  }
+  .card-stats .value {
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    color: black;
+    height: 40px;
+    font-family:12px "Lucida Grande","LucidaGrande",Arial,sans-serif;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  
+  /*100%*/
+  
+  }
+  a {
+  text-decoration: none;
+  }
+  .card .details {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    width: 70%;/*100%*/
+    height: 100%;
+    background: #f5ca29;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+  }
+  .card:hover .details {
+    transform: perspective(2000px) rotateY(0deg);
+  }
+  .card .details .center {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .card .details .center h1 {
+    margin: 0;
+    padding: 0;
+    color: #ff3636;
+    line-height: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .card .details .center h1 span {
+    font-size: 14px;
+    color: #262626;
+  }
+  
