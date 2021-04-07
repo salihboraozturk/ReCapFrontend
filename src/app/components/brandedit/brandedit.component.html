@@ -1,0 +1,59 @@
+<div class="row" style="height: 714px;">
+    <div class="colorlist col-md-3">
+      <h1>Marka Listesi</h1>
+      <div class="brands">
+        <ul>
+          <li *ngFor="let brand of brands">{{ brand.brandName }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="brandadd col-md-3">
+      <div class="card">
+        <div class="card-header">Marka Ekle</div>
+        <div class="card-body">
+          <form [formGroup]="brandAddForm">
+            <input
+              type="text"
+              formControlName="brandName"
+              class="form-control"
+              placeholder="Marka giriniz"
+            />
+          </form>
+          <button class="btn addbtn" (click)="brandAdd()">Ekle</button>
+        </div>
+      </div>
+    </div>
+    <div class="brandupdate col-md-6">
+      <div class="card">
+        <div class="card-header">Marka Güncelle</div>
+        <div class="card-body">
+          <form [formGroup]="brandUpdateForm">
+            <div class="row">
+            <select
+              style=" width:300px;"
+              formControlName="brandId"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option  value="" disabled selected>
+                Bir marka seçiniz
+              </option>
+              <option *ngFor="let brand of brands" [value]="brand.brandId">
+                {{ brand.brandName }}
+              </option>
+            </select>
+            <input
+              type="text"
+              formControlName="brandName"
+              class="form-control"
+              style="width: 300px; margin-left:20px;"
+              placeholder="Marka giriniz"
+            />
+          </div>
+          </form>
+          <button class="btn updatebtn" (click)="brandUpdate()">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

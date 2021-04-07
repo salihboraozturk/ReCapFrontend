@@ -28,6 +28,9 @@ export class PaymentComponent implements OnInit {
   rental: Rental;
   userId: number;
   isChecked = false;
+  cards: Card[];
+  currentCard: Card;
+  paymentModel: Payment;
   constructor(
     private activatedRoute: ActivatedRoute,
     private rentalService: RentalService,
@@ -36,17 +39,17 @@ export class PaymentComponent implements OnInit {
     private authService: AuthService,
     private toastrService: ToastrService,
     private formBuilder: FormBuilder,
-    private carService:CarService,
-    private userService:UserService,
-    private router:Router
+    private carService: CarService,
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       if (params['rental']) {
         this.rental = JSON.parse(params['rental']);
-        this.createPaymentForm(); 
-        
+        this.createPaymentForm();
+        this.getCardsByUserId();
       }
     });
   }
@@ -66,17 +69,23 @@ export class PaymentComponent implements OnInit {
     });
   }
   checkPayment() {
-    if (this.paymentForm.valid) {
-      let paymentModel = Object.assign({}, this.paymentForm.value);
-      this.paymentService.checkPayment(paymentModel).subscribe((response) => {
-        this.toastrService.success(response.messages, 'Başarılı');
-        this.addRental();
-        this.checkFindex();
-        this.router.navigate(["/cars"]);
-       
-      });
+    if (this.currentCard) {
+      this.paymentModel = Object.assign({}, this.currentCard);
     } else {
-      this.toastrService.error('Lütfen formu doğru doldurunuz.');
+      this.paymentModel = Object.assign({}, this.paymentForm.value);
+    }
+    if (this.currentCard || this.paymentForm.valid) {
+      this.paymentService
+        .checkPayment(this.paymentModel)
+        .subscribe((response) => {
+          this.toastrService.success(response.messages, 'Başarılı');
+          this.addRental();
+          this.checkFindex();
+          this.router.navigate(['/cars']);
+        });
+    }
+    else{
+      this.toastrService.error("Lütfen formu doldurunuz!")
     }
   }
   saveCard() {
@@ -90,10 +99,22 @@ export class PaymentComponent implements OnInit {
       });
     }
   }
+  getCardsByUserId() {
+    this.cardService
+      .getCardsByUserId(this.authService.getUserId())
+      .subscribe((response) => {
+        this.cards = response.data;
+      });
+  }
+  setCurrentCard(card: Card) {
+    this.currentCard = card;
+  }
 
-  checkFindex(){
-    this.userService.checkFindex(this.authService.getUserId()).subscribe(response=>{
-      this.toastrService.info(response.messages);
-    })
+  checkFindex() {
+    this.userService
+      .checkFindex(this.authService.getUserId())
+      .subscribe((response) => {
+        this.toastrService.info(response.messages);
+      });
   }
 }

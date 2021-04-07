@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrandComponent } from './components/brand/brand.component';
+import { BrandeditComponent } from './components/brandedit/brandedit.component';
 import { CarAddComponent } from './components/car-Add/car-add.component';
 import { CarUpdateComponent } from './components/car-Update/car-update.component';
 
 import { CarComponent } from './components/car/car.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { ColoreditComponent } from './components/coloredit/coloredit.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -49,7 +52,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'cards', component: CardsComponent, canActivate: [LoginGuard] },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  {path:'coloredit',component:ColoreditComponent},
+  {path:'brandedit',component:BrandeditComponent}
 ];
 
 @NgModule({

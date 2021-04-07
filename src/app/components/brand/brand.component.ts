@@ -25,20 +25,21 @@ export class BrandComponent implements OnInit {
   setCurrentBrands(brand: Brand) {
     this.currentBrand = brand;
   }
-  getCurrentBrandClass(brand:Brand){
-    if(brand==this.currentBrand){
-      return "list-group-item active"
+  getCurrentStyle(brand:Brand){
+    if(this.currentBrand==brand){
+      return "background-color:#f5ca29;"
     }
     else{
-      return "list-group-item"
+      return "background-color: #3f3f3f; color:white;"
     }
   }
-  getAllBrandClass(){
-  if(!this.currentBrand){
-      return "list-group-item active"
+  
+  getAllBrandStyle(){
+    if(!this.currentBrand){
+      return "background-color:#f5ca29; color:#3f3f3f"
     }
     else{
-      return "list-group-item"
+      return "background-color: #3f3f3f; color:white;"
     }
   }
   setClearBrand(){

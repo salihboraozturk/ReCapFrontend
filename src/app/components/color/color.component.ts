@@ -27,20 +27,21 @@ getColors(){
 setCurrentColor(color:Color){
 this.currentColor=color;
 }
-getCurrentColorClass(color:Color){
+getCurrentStyle(color:Color){
   if(this.currentColor==color){
-    return "list-group-item active"
+    return "background-color:#f5ca29;"
   }
   else{
-    return "list-group-item"
+    return "background-color: #3f3f3f; color:white;"
   }
 }
-getAllColorClass(){
+
+getAllColorStyle(){
   if(!this.currentColor){
-    return "list-group-item active"
+    return "background-color:#f5ca29; color:#3f3f3f"
   }
   else{
-    return "list-group-item"
+    return "background-color: #3f3f3f; color:white;"
   }
 }
 setClearCurrentColor(){

@@ -21,7 +21,7 @@ import { BrandPipePipe } from './pipes/brand/brand-pipe.pipe';
 import { CarPipePipe } from './pipes/car/car-pipe.pipe';
 import { ColorPipePipe } from './pipes/color/color-pipe.pipe';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
-import { CarFilterComponent } from './components/car-filter/car-filter/car-filter.component';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
 
 import { from } from 'rxjs';
@@ -35,6 +35,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { CardsComponent } from './components/cards/cards.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { ColoreditComponent } from './components/coloredit/coloredit.component';
+import { BrandeditComponent } from './components/brandedit/brandedit.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { HomeComponent } from './components/home/home.component';
     ChangePasswordComponent,
     CardsComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ColoreditComponent,
+    BrandeditComponent
   ],
   imports: [
     BrowserModule,

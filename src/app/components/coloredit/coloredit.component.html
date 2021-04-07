@@ -1,0 +1,58 @@
+<div class="row" style="height: 714px;">
+  <div class="colorlist col-md-3">
+    <h1>Renk Listesi</h1>
+    <div class="colors">
+      <ul>
+        <li *ngFor="let color of colors">{{ color.colorName }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="coloradd col-md-3">
+    <div class="card">
+      <div class="card-header">Renk Ekle</div>
+      <div class="card-body">
+        <form [formGroup]="colorAddForm">
+          <input
+            type="text"
+            formControlName="colorName"
+            class="form-control"
+            placeholder="Renk giriniz"
+          />
+        </form>
+        <button class="btn addbtn" (click)="colorAdd()">Ekle</button>
+      </div>
+    </div>
+  </div>
+  <div class="colorupdate col-md-6">
+    <div class="card">
+      <div class="card-header">Renk Güncelle</div>
+      <div class="card-body">
+        <form [formGroup]="colorUpdateForm">
+          <div class="row">
+          <select
+            style=" width:300px;"
+            formControlName="colorId"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option  value="" disabled selected>
+              Bir renk seçiniz
+            </option>
+            <option *ngFor="let color of colors" [value]="color.colorId">
+              {{ color.colorName }}
+            </option>
+          </select>
+          <input
+            type="text"
+            formControlName="colorName"
+            class="form-control"
+            style="width: 300px; margin-left:20px;"
+            placeholder="Renk giriniz"
+          />
+        </div>
+        </form>
+        <button class="btn updatebtn" (click)="colorUpdate()">Güncelle</button>
+      </div>
+    </div>
+  </div>
+</div>

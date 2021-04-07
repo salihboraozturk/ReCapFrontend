@@ -1,8 +1,60 @@
-<div class="row" style="height: 697px">
+<div class="row" style="height: 714px">
   <div class="col-75">
     <div class="container">
+      <div class="cards" style="margin-bottom: 10px" *ngIf="cards.length">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item" style="background-color: black">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Kayıtlı Kartlarım
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body" style="background-color: #3f3f3f">
+                <div class="row">
+                  <ul class="list-group" style="margin-left:20px;">
+                    <li
+                      (click)="setCurrentCard(card)"
+                      *ngFor="let card of cards"
+                      class="list-group-item col-md-2"
+                    >
+                      <i class="fas fa-credit-card"></i> {{ card.cardNumber }}
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  *ngIf="currentCard"
+                  class="alert  col-md-2"
+                  style="
+                    margin-top: 10px;
+                    margin-left: 15px;
+                    position: relative;
+                    right: 10px;
+                    background-color: #f5ca29;
+                  "
+                >
+                  {{ currentCard.cardNumber }} numaralı kartı seçtiniz.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <form [formGroup]="paymentForm">
-        <div class="row">
+        <div *ngIf="!currentCard" class="row">
           <div class="col-50">
             <h3 style="color: #f5ca29">Ödeme</h3>
             <label for="cname">Kart Sahibinin Adı:</label>
@@ -21,9 +73,17 @@
               name="cardnumber"
               placeholder="1111-2222-3333-4444"
             />
-            <label for="expmonth">Son Kullanma Tarihi:</label>
             <div class="row">
-              <div class="month">
+              <label style="width: 200px" for="expmonth"
+                >Son Kullanma Tarihi:</label
+              >
+              <label style="margin-left:50px; width: 100px" for="cvv"
+                >CVV:</label
+              >
+            </div>
+
+            <div class="row">
+              <div class="month" style="width: 100px">
                 <input
                   style="width: 80px; text-align: center"
                   formControlName="expirationMonth"
@@ -33,16 +93,18 @@
                   placeholder="Month"
                 />
               </div>
-              <a style="position: absolute; margin-left: 88px">/</a>
-              <div>
+              <a
+                style="
+                  position: absolute;
+                  width: 100px;
+                  margin-left: 88px;
+                  color: white;
+                "
+                >/</a
+              >
+              <div style="width: 100px">
                 <input
-                  style="
-                    width: 80px;
-                    text-align: center;
-                    position: absolute;
-                    top: 362px;
-                    right: 1400px;
-                  "
+                  style="width: 80px; text-align: center"
                   formControlName="expirationYear"
                   type="number"
                   id="expirationYear"
@@ -50,27 +112,23 @@
                   placeholder="Year"
                 />
               </div>
-            </div>
-            <div
-              class="col-25"
-              style="position: absolute; top: 328px; right: 1250px"
-            >
-              <label for="cvv">CVV:</label>
-              <input
-                style="width: 70px; text-align: center"
-                formControlName="cvv"
-                type="number"
-                id="cvv"
-                name="cvv"
-                placeholder="123"
-              />
+              <div class="cvv" style=" margin-left:50px;width: 100px">
+                <input
+                  style="width: 70px; text-align: center"
+                  formControlName="cvv"
+                  type="number"
+                  id="cvv"
+                  name="cvv"
+                  placeholder="123"
+                />
+              </div>
             </div>
 
             <div class="row"></div>
           </div>
         </div>
       </form>
-      <div style="margin-top: 10px" class="check">
+      <div *ngIf="!currentCard" style="margin-top: 10px" class="check">
         <div class="form-check form-switch">
           <input
             [(ngModel)]="isChecked"

@@ -1,4 +1,7 @@
-.list-group li{
-    background-color:#3F3F3F ;  
-    color:white
-  }
+li:hover{
+  cursor: pointer;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:white;
+  opacity:0.3; /* Firefox */
+}

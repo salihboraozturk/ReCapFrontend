@@ -2,11 +2,12 @@
   <input [(ngModel)]="filterBrand" type="text" class="form-control" id="filterBrand" style="background-color:#3F3F3F;" placeholder="Marka giriniz.">
 </div>
 <ul class="list-group">
-  <li [class]="getAllBrandClass()" (click)="setClearBrand()" routerLink="cars" >Tüm Markalar</li>
+  <li class="list-group-item"  [style]="getAllBrandStyle()" (click)="setClearBrand()" routerLink="/cars" >Tüm Markalar</li>
   <li
     (click)="setCurrentBrands(brand)"
-    routerLink="cars/brand/{{brand.brandId}}"
-    [class]="getCurrentBrandClass(brand)"
+    [style]="getCurrentStyle(brand)"
+    routerLink="/cars/brand/{{brand.brandId}}"
+    class="list-group-item"
     *ngFor="let brand of brands | brandPipe:filterBrand"
   >
     {{ brand.brandName }}

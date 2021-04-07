@@ -1,6 +1,9 @@
 .container {
  background: white ;
 }
-
-
 /* #12161C  */
+
+#page{
+    margin: 0 auto;
+    padding-bottom: 2.5rem;
+}

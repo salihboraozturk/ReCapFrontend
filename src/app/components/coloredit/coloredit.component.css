@@ -1,0 +1,33 @@
+h1{
+    width: 250px;
+    margin-left: 30px;
+}
+li{
+ list-style-type:none;
+ margin:5px;
+ 
+}
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .addbtn{
+      background-color:#f5ca29;
+      float: right;
+      margin-top:10px;
+  }
+  .updatebtn{
+    background-color:#f5ca29;
+    float: right;
+    margin-top:10px;
+}
+  .addbtn:hover{
+   background-color:#c9a523 ;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  }
+  .card-header{
+      background-color:#3f3f3f ;
+      color:#f5ca29;
+  }
+ 

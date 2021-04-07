@@ -2,11 +2,12 @@
   <input [(ngModel)]="filterColor" type="text" class="form-control" id="filterColor" style="background-color:#3F3F3F; color:white;" placeholder="Renk giriniz.">
 </div>
 <ul class="list-group">
-  <li [class]="getAllColorClass()" (click)="setClearCurrentColor()" routerLink="cars">Tüm Renkler</li>
+  <li  class="list-group-item"  [style]="getAllColorStyle()" (click)="setClearCurrentColor()" routerLink="/cars">Tüm Renkler</li>
   <li
     (click)="setCurrentColor(color)"
-    [class]="getCurrentColorClass(color)"
-    routerLink="cars/color/{{color.colorId}}"
+    [style]="getCurrentStyle(color)"
+    class="list-group-item"
+    routerLink="/cars/color/{{color.colorId}}"
     *ngFor="let color of colors | colorPipe:filterColor"
   >
     {{ color.colorName }}
