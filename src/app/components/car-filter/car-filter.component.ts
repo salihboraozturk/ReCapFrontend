@@ -37,7 +37,6 @@ export class CarFilterComponent implements OnInit {
   }
   getCurrentBrand(brand: Brand) {
     if (brand.brandId == this.currentBrand) {
-      console.log(this.currentBrand);
       return true;
     } else {
       return false;
@@ -45,7 +44,6 @@ export class CarFilterComponent implements OnInit {
   }
   getCurrentColor(color: Color) {
     if (color.colorId == this.currentColor) {
-      console.log(this.currentColor);
       return true;
     } else {
       return false;

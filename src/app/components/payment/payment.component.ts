@@ -31,6 +31,7 @@ export class PaymentComponent implements OnInit {
   cards: Card[];
   currentCard: Card;
   paymentModel: Payment;
+  amount:number;
   constructor(
     private activatedRoute: ActivatedRoute,
     private rentalService: RentalService,
@@ -48,6 +49,7 @@ export class PaymentComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params['rental']) {
         this.rental = JSON.parse(params['rental']);
+        this.amount = JSON.parse(params['amount']);
         this.createPaymentForm();
         this.getCardsByUserId();
       }

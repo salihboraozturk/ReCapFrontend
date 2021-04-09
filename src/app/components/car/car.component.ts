@@ -45,7 +45,6 @@ export class CarComponent implements OnInit {
   getCars() {
     this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
-      console.log(response.data);
     });
   }
   getCarsByBrand(brandId: number) {
@@ -66,11 +65,9 @@ export class CarComponent implements OnInit {
       });
   }
   setPreviewImages(cars:CarDetail[]){
-    console.log(cars);
     cars.forEach(car => {
       this.carImageService.getCarImage(car.carId).subscribe((response) => {
         car.imagePath = "https://localhost:44393/" + response.data[0].imagePath;
-      console.log(response.data);
       });
     });
   }

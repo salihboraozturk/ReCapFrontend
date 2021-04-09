@@ -1,7 +1,7 @@
 <div class="row" style="height: 714px">
   <div class="col-75">
     <div class="container">
-      <div class="cards" style="margin-bottom: 10px" *ngIf="cards.length">
+      <div class="cards" style="margin-bottom: 10px" *ngIf="cards && cards.length">
         <div class="accordion" id="accordionExample">
           <div class="accordion-item" style="background-color: black">
             <h2 class="accordion-header" id="headingOne">
@@ -142,7 +142,7 @@
           >
         </div>
       </div>
-      <button (click)="checkPayment()" class="btn">Ödeme Yap</button>
+      <button (click)="checkPayment()" class="btn">Ödeme Yap:{{amount}}₺</button>
     </div>
   </div>
 </div>

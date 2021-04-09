@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
   register() {
     if (this.registerForm.valid) {
       let registerModel = Object.assign({}, this.registerForm.value);
-      console.log(registerModel);
       this.authService.register(registerModel).subscribe(
         (response) => {
           this.localStorageService.set('token', response.data.token);

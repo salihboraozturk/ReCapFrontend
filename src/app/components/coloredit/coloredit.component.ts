@@ -45,7 +45,6 @@ export class ColoreditComponent implements OnInit {
   colorAdd() {
     if (this.colorAddForm.valid) {
       let colorModel = Object.assign({}, this.colorAddForm.value);
-      console.log(colorModel);
       this.colorService.addColor(colorModel).subscribe((response) => {
         this.toastrService.success(response.messages);
         window.location.reload();

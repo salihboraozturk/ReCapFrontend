@@ -49,7 +49,6 @@ export class CardetailComponent implements OnInit {
       this.car = response.data;
       this.rentable=response.data.status;
       this.carId=response.data.carId;
-      console.log(carId);
     
     });
   }

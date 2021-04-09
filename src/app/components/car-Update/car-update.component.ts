@@ -70,7 +70,6 @@ export class CarUpdateComponent implements OnInit {
     })
   }
   update(){
-    console.log(this.carUpdateForm)
     if (this.carUpdateForm.valid) {
       let carModel = Object.assign({},this.carUpdateForm.value);
       this.carService.update(carModel).subscribe(response => {
@@ -123,13 +122,11 @@ export class CarUpdateComponent implements OnInit {
   getCarImagesByCarId(){
     this.carImageService.getCarImage(this.carId).subscribe(response => {
       this.carImages = response.data;
-      console.log(this.carImages);
     })
   }
 
   updateImage(){
-    console.log(this.carId)
-    console.log(this.imageFile)
+
     if (this.imageUpdateForm.valid) {
       this.carImageService.update(this.carId,this.imageFile,this.currentCarImageId).subscribe(response => {
         this.toastrService.success(response.messages,"Başarılı")
@@ -139,7 +136,6 @@ export class CarUpdateComponent implements OnInit {
 
   setCurrentCarImageId(image:CarImage){
     this.currentCarImageId = image.id;
-    console.log(this.currentCarImageId)
   }
 
   getCurrentImageClass(image:CarImage){

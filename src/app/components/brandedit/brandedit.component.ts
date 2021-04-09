@@ -44,7 +44,6 @@ export class BrandeditComponent implements OnInit {
   brandAdd() {
     if (this.brandAddForm.valid) {
       let brandModel = Object.assign({}, this.brandAddForm.value);
-      console.log(brandModel);
       this.brandService.addBrand(brandModel).subscribe((response) => {
         this.toastrService.success(response.messages);
         window.location.reload();

@@ -1,100 +1,122 @@
-<div class="rental" style="height: 704px;">
-<div class="card" style="margin-left: 335px; margin-top: 10px;">
-  <thead>
- <h6 style="margin-left: 5px; margin-top: 5px;color:#3f3f3f"> Araç Bilgileri</h6>
-  </thead>
+<div class="rental" style="height: 704px">
+  <div class="card" style="margin-left: 335px; margin-top: 10px">
+    <thead>
+      <h6 style="margin-left: 5px; margin-top: 5px; color: #3f3f3f">
+        Araç Bilgileri
+      </h6>
+    </thead>
 
-  <table class="tablearac" *ngIf="car">
-  
-      <div  class="image">
-        <img src="https://localhost:44393/{{car.imagePath}}" alt="..." />
+    <table class="tablearac" *ngIf="car">
+      <div class="image">
+        <img src="https://localhost:44393/{{ car.imagePath }}" alt="..." />
       </div>
       <div class="col-md-8">
-        <div class="card-body" style="color:white">
-          <h4 class="card-title">
-            {{ car.brandName }} {{ car.carName }}
-          </h4>
+        <div class="card-body" style="color: white">
+          <h4 class="card-title">{{ car.brandName }} {{ car.carName }}</h4>
           <p class="card-text"><strong>Renk: </strong>{{ car.colorName }}</p>
-          <p class="card-text"><strong>Model Yılı: </strong>{{ car.modelYear }}</p>
-          <p class="card-text"><strong>Yakıt-Vites: </strong>{{ car.description }}</p>
-          <p class="card-text"><strong>Günlük Ücret: </strong>{{ car.dailyPrice + "₺" }}</p>
+          <p class="card-text">
+            <strong>Model Yılı: </strong>{{ car.modelYear }}
+          </p>
+          <p class="card-text">
+            <strong>Yakıt-Vites: </strong>{{ car.description }}
+          </p>
+          <p class="card-text">
+            <strong>Günlük Ücret: </strong>{{ car.dailyPrice + "₺" }}
+          </p>
         </div>
       </div>
- 
-  </table>
-</div>
-
-<div class="card" style="position:absolute; top: 85px; width: 300px;">
-  <thead style="background-color: #f5ca29; color:#3f3f3f;">
-    <h6 style="margin-left: 5px; margin-top: 5px;"> Kiralama Bilgileri</h6>
-     </thead>
-  <table >
-    <div class="rent-date">
-      <div class="mb-2 row" style="width: 300px; margin-left:1px; margin-top: 5px;">
-        <div class="col-md-5">
-          <label for="rent-date" class="form-label">Başlangıç:</label>
-        </div>
-        <div class="col-md-7">
-          <input
-            (change)="onChangeEvent($event)"
-            min="{{ minDate }}"
-            [(ngModel)]="rentDate"
-            type="date"
-            class="form-control"
-            id="rent-date"
-            placeholder="Bir gün seçiniz."
-          />
-        </div>
-      </div>
-    </div>
-    <div class="return-date">
-      <div class="mb-2 row" style="width: 300px; margin-left:1px;">
-        <div class="col-md-5">
-          <label for="return-date" class="form-label">Bitiş:</label>
-        </div>
-        <div class="col-md-7">
-          <input
-            disabled="{{ !firstDateSelected }}"
-            min="{{ minDate }}"
-            max="{{ maxDate }}"
-            [(ngModel)]="returnDate"
-            type="date"
-            class="form-control"
-            id="return-date"
-            placeholder="Bir gün seçiniz."
-          />
-        </div>
-      </div>
-    </div>
-    <div class="customers">
-      <div class="row" style="width: 300px; margin-left:1px;">
-        <div class="col-md-5" style="color:white">
-          Müşteriler:
-        </div>
-        <div class="col-md-7">
-          <select  #selectCustomer (change)="setCustomerId(selectCustomer.value)" class="form-select" aria-label="Default select example">
-            <option selected>Müşteri seçin.</option>
-            <option *ngFor="let customer of customers" [value]="customer.customerId">{{customer.companyName}}</option>
-          </select>
-      </div>
-    </div>
+    </table>
   </div>
- 
-    <div *ngIf="userFindex>=car.minFindex" class="button">
-    <button (click)="addRental()" type="button" class="btn" data-bs-dismiss="modal">Kirala</button>
-  </div>
-  <div *ngIf="userFindex<car.minFindex"  class="findexerror" >
-    Findex puanı yetersiz.<br>Başka bir araç seçin.
-  </div>
-  </table>
 
+  <div class="card" style="position: absolute; top: 85px; width: 300px">
+    <thead style="background-color: #f5ca29; color: #3f3f3f">
+      <h6 style="margin-left: 5px; margin-top: 5px">Kiralama Bilgileri</h6>
+    </thead>
+    <table>
+      <div class="rent-date">
+        <div
+          class="mb-2 row"
+          style="width: 300px; margin-left: 1px; margin-top: 5px"
+        >
+          <div class="col-md-5">
+            <label for="rent-date" class="form-label">Başlangıç:</label>
+          </div>
+          <div class="col-md-7">
+            <input
+              (change)="checkdate()"
+              min="{{ minDate }}"
+              [(ngModel)]="rentDate"
+              type="date"
+              class="form-control"
+              id="rent-date"
+              placeholder="Bir gün seçiniz."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="return-date">
+        <div class="mb-2 row" style="width: 300px; margin-left: 1px">
+          <div class="col-md-5">
+            <label for="return-date" class="form-label">Bitiş:</label>
+          </div>
+          <div class="col-md-7">
+            <input
+              disabled="{{ !rentDate }}"
+              min="{{ rentDate }}"
+              max="{{ maxDate }}"
+              [(ngModel)]="returnDate"
+              type="date"
+              class="form-control"
+              id="return-date"
+              placeholder="Bir gün seçiniz."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="customers">
+        <div class="row" style="width: 300px; margin-left: 1px">
+          <div class="col-md-5" style="color: white">Müşteriler:</div>
+          <div class="col-md-7">
+            <select
+              #selectCustomer
+              (change)="setCustomerId(selectCustomer.value)"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>Müşteri seçin.</option>
+              <option
+                *ngFor="let customer of customers"
+                [value]="customer.customerId"
+              >
+                {{ customer.companyName }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
 
+      <div *ngIf=" car && userFindex >= car.minFindex" class="row">
+        <div class=row>
+          <span class="input-group-text" style="width: 50px;position: absolute;top:180px;right:237px;">₺</span>
+          <span class="input-group-text" style="width: 80px;position: absolute;top:180px;right:157px;">{{ amountToBePaid() }}</span>
+        </div>
+        <div class="button">
+          <button
+            (click)="addRental()"
+            type="button"
+            class="btn"
+            data-bs-dismiss="modal"
+          >
+            Kirala
+          </button>
+        </div>
+      </div>
+      <div *ngIf="car && userFindex < car.minFindex" class="findexerror">
+        Findex puanı yetersiz.<br />Başka bir araç seçin.
+      </div>
+    </table>
 
-
-
-
-
-  <!-- <div class="bilgi">
+    <!-- <div class="bilgi">
   <thead>
     <h6 style="margin-left: 5px; margin-top: 5px;"> Kiralama Bilgileri</h6>
      </thead>
@@ -156,3 +178,5 @@
   </table>
 </div>
 </div> -->
+  </div>
+</div>

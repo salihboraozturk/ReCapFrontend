@@ -35,7 +35,6 @@ userId:number;
         { userId: this.authService.getUserId() },
         this.changePasswordForm.value
       );
-      console.log(passwordModel);
       this.authService.changePassword(passwordModel).subscribe((response) => {
         this.toastrService.success(response.messages);
       });
