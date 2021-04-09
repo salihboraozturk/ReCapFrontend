@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Color } from 'src/app/models/color/color';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ColorService } from 'src/app/services/color/color.service';
 
 @Component({
@@ -61,4 +62,5 @@ export class ColoreditComponent implements OnInit {
       });
     }
   }
+
 }

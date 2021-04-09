@@ -19,6 +19,7 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   imagePath:string;
   filterCar = '';
+
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
@@ -35,7 +36,9 @@ export class CarComponent implements OnInit {
       } else if (params['colorId']) {
         this.getCarsByColor(params['colorId']);
       } else {
+        this.reload();
         this.getCars();
+        
       }
     });
   }
@@ -71,5 +74,12 @@ export class CarComponent implements OnInit {
       });
     });
   }
-  
+  reload(){
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
+  }
 }

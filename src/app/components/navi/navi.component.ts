@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -39,6 +40,8 @@ export class NaviComponent implements OnInit {
   }
 
   logOut() {
+    this.user.firstName=" ";
+    this.user.lastName=" ";
     this.localStorageService.clear();
     this.router.navigate(['/cars']);
   }

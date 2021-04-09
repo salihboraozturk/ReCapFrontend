@@ -2,7 +2,7 @@
   <input [(ngModel)]="filterColor" type="text" class="form-control" id="filterColor" style="background-color:#3F3F3F; color:white;" placeholder="Renk giriniz.">
 </div>
 <ul class="list-group">
-  <li  class="list-group-item"  [style]="getAllColorStyle()" (click)="setClearCurrentColor()" routerLink="/cars">Tüm Renkler</li>
+  <li  class="list-group-item"  [style]="getAllColorStyle()" (click)="setClearCurrentColor()" routerLink="/cars">Tüm Renkler<button  *ngIf="checkAdmin()"  routerLink="/coloredit" class="fas fa-cog"></button></li>
   <li
     (click)="setCurrentColor(color)"
     [style]="getCurrentStyle(color)"

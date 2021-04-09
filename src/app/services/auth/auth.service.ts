@@ -17,11 +17,13 @@ export class AuthService {
   userId: number;
   apiUrl = 'https://localhost:44393/api/';
   jwtHelper: JwtHelperService = new JwtHelperService();
+  claims: string[];
   constructor(
     private httpClient: HttpClient,
     private localStorageService: LocalStorageService
   ) {
     this.setUserId();
+    this.setClaims();
   }
 
   login(loginModel: LoginModel): Observable<SingleResponseModel<TokenModel>> {
@@ -40,7 +42,9 @@ export class AuthService {
       registerModel
     );
   }
-  changePassword(changePasswordModel: ChangePasswordModel):Observable<ResponseModel>{
+  changePassword(
+    changePasswordModel: ChangePasswordModel
+  ): Observable<ResponseModel> {
     let newPath = this.apiUrl + 'auth/changepassword';
     return this.httpClient.post<ResponseModel>(newPath, changePasswordModel);
   }
@@ -64,5 +68,25 @@ export class AuthService {
   }
   getUserId(): number {
     return this.userId;
+  }
+  setClaims() {
+    if (this.localStorageService.get('token')) {
+      var decoded = this.jwtHelper.decodeToken(
+        this.localStorageService.get('token')
+      );
+      var claim = Object.keys(decoded).filter((x) => x.endsWith('/role'))[0];
+      this.claims = decoded[claim];
+    }
+  }
+  checkAdmin() {
+    if (this.claims) {
+      if (this.claims.includes('admin')) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 }

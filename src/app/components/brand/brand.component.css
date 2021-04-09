@@ -5,3 +5,13 @@ li:hover{
   color:white;
   opacity:0.3; /* Firefox */
 }
+.fas{
+float: right;
+background: cyan;
+border: none;
+}
+.fas:hover{
+  background:red;
+
+ 
+}

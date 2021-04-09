@@ -1,8 +1,9 @@
 <div class="mb-3">
   <input [(ngModel)]="filterBrand" type="text" class="form-control" id="filterBrand" style="background-color:#3F3F3F;" placeholder="Marka giriniz.">
 </div>
+
 <ul class="list-group">
-  <li class="list-group-item"  [style]="getAllBrandStyle()" (click)="setClearBrand()" routerLink="/cars" >Tüm Markalar</li>
+  <li class="list-group-item"  [style]="getAllBrandStyle()" (click)="setClearBrand()" routerLink="/cars" >Tüm Markalar<button  *ngIf="checkAdmin()"  routerLink="/brandedit" class="fas fa-cog"></button></li>
   <li
     (click)="setCurrentBrands(brand)"
     [style]="getCurrentStyle(brand)"

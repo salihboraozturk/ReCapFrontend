@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Color } from 'src/app/models/color/color';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ColorService } from 'src/app/services/color/color.service';
 
 
@@ -15,10 +16,12 @@ colors:Color[]=[];
 currentColor:Color;
 clearColor:Color;
 filterColor="";
-  constructor(private colorService:ColorService) { }
+  constructor(private colorService:ColorService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getColors();
+    this.checkAdmin();
     
   }
 getColors(){
@@ -47,4 +50,7 @@ getAllColorStyle(){
 setClearCurrentColor(){
   this.currentColor=this.clearColor;
 }
+checkAdmin() {
+  return this.authService.checkAdmin();
+ }
 }

@@ -24,7 +24,9 @@ export class RegisterComponent implements OnInit {
     private toastrService: ToastrService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createRegisterForm();
+  }
   createRegisterForm() {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -35,7 +37,8 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     if (this.registerForm.valid) {
-      let registerModel = Object.assign('', this.registerForm.value);
+      let registerModel = Object.assign({}, this.registerForm.value);
+      console.log(registerModel);
       this.authService.register(registerModel).subscribe(
         (response) => {
           this.localStorageService.set('token', response.data.token);

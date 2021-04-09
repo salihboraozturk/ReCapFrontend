@@ -15,6 +15,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { AdminGuard } from './guards/admin.guard';
 import { LoginGuard } from './guards/login.guard';
 import { AuthService } from './services/auth/auth.service';
 import { CardService } from './services/card/card.service';
@@ -42,19 +43,19 @@ const routes: Routes = [
     component: PaymentComponent,
     canActivate: [LoginGuard],
   },
-  { path: 'cars/add', component: CarAddComponent, canActivate: [LoginGuard] },
+  { path: 'cars/add', component: CarAddComponent, canActivate: [LoginGuard,AdminGuard] },
   {
     path: 'cars/update/:carId',
     component: CarUpdateComponent,
-    canActivate: [LoginGuard],
+    canActivate: [LoginGuard,AdminGuard],
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'cards', component: CardsComponent, canActivate: [LoginGuard] },
   { path: 'home', component: HomeComponent },
-  {path:'coloredit',component:ColoreditComponent},
-  {path:'brandedit',component:BrandeditComponent}
+  {path:'coloredit',component:ColoreditComponent, canActivate: [LoginGuard,AdminGuard]},
+  {path:'brandedit',component:BrandeditComponent, canActivate: [LoginGuard,AdminGuard]}
 ];
 
 @NgModule({
