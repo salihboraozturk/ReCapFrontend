@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # About The Project 
 <details open>
-<summary>Home</b>: </summary> 
+<summary><b>Home</b>: </summary> 
 <br>
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114284168-c0f3cc00-9a56-11eb-96d1-7a296e153a6b.png"></p>
 </details>
