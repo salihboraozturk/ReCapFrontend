@@ -22,47 +22,40 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <br>
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283924-17f8a180-9a55-11eb-9a0c-56df2a0e5325.png"></p>
 </details>
+<details>
+<summary><b>Car List</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283920-0fa06680-9a55-11eb-8b10-426675958b4e.png"></p>
+</details>
+<details>
+<summary><b>Car Detail</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283912-0d3e0c80-9a55-11eb-9ee4-bc489c256979.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283914-0f07d000-9a55-11eb-857b-c8bba27dd880.png"></p>
+</details>
+<details>
+<summary><b>Rent</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283906-044d3b00-9a55-11eb-9189-3cf46d85dbf3.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283908-044d3b00-9a55-11eb-9dae-7a550158766d.png"></p>
+</details>
+<details>
+<summary><b>Payment</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283925-1929ce80-9a55-11eb-8bfb-d9488f7112ef.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283901-01eae100-9a55-11eb-9ff4-2149e4f145b1.png"></p>
+</details>
+<details>
+<summary><b>Profile</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283903-02837780-9a55-11eb-815a-f39c41deb560.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283904-031c0e00-9a55-11eb-87da-b158215f264f.png"></p>
+</details>
+<summary><b>Cards</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283918-0fa06680-9a55-11eb-892c-ffbad5dca9f6.png"></p>
+</details>
+
 
 # Frontend Link
 <h4><a align="center" href="https://github.com/salihboraozturk/ReCapFrontend">ReCapProject | Frontend</a></h4><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# CarRental
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
