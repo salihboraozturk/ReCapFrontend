@@ -58,5 +58,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 </details>
 
 
-# Frontend Link
-<h4><a align="center" href="https://github.com/salihboraozturk/ReCapFrontend">ReCapProject | Frontend</a></h4><br>
+# Backend Link
+<h4><a align="center" href="https://github.com/salihboraozturk/ReCapProject">ReCapProject | Backend</a></h4><br>
