@@ -51,6 +51,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283903-02837780-9a55-11eb-815a-f39c41deb560.png"></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283904-031c0e00-9a55-11eb-87da-b158215f264f.png"></p>
 </details>
+<details>
 <summary><b>Cards</b>: </summary> 
 <br>
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283918-0fa06680-9a55-11eb-892c-ffbad5dca9f6.png"></p>
