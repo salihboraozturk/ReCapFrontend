@@ -10,11 +10,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <details open>
  <summary><b>Project Views</b>: </summary>
 <br>
-  <details open>
- <summary><b>Home</b>: </summary>
-<br>
+  
+     <details open>
+     <summary><b>Home</b>: </summary>
+      <br>
 
-</details>
+     </details>
 
 </details>
 
