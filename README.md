@@ -7,12 +7,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # About The Project 
 <details open>
-<summary><b>Home</b>: </summary> 
+<summary>Home</b>: </summary> 
 <br>
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114284168-c0f3cc00-9a56-11eb-96d1-7a296e153a6b.png"></p>
 </details>
 
-
+<details>
+<summary><b>Register</b>: </summary> 
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283905-031c0e00-9a55-11eb-9a8b-0a389dfc5374.png"></p>
+</details>
 
 # Frontend Link
 <h4><a align="center" href="https://github.com/salihboraozturk/ReCapFrontend">ReCapProject | Frontend</a></h4><br>
