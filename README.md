@@ -58,7 +58,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 </details>
 <details>
 <summary><b>Edit</b>: </summary> 
-These components are protected using admin guard.
+  <h2>These components are protected using admin guard.</h2>
 <br>
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283918-0fa06680-9a55-11eb-892c-ffbad5dca9f6.png"></p>
 </details>
