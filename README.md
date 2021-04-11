@@ -60,7 +60,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <summary><b>Edit</b>: </summary> 
   <h2>These components are protected using admin guard.</h2>
 <br>
-<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114283918-0fa06680-9a55-11eb-892c-ffbad5dca9f6.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114298839-f7663100-9ac0-11eb-8a21-fbcce39822b1.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114298838-f6cd9a80-9ac0-11eb-822d-05733f7bb1c5.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114298837-f59c6d80-9ac0-11eb-9828-83c67a5be0c1.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/34316987/114298847-ff25d580-9ac0-11eb-865f-7c726d82178f.png"></p>
 </details>
 
 
