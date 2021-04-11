@@ -5,7 +5,8 @@
         <div class="accordion" id="accordionExample">
           <div class="accordion-item" style="background-color: black">
             <h2 class="accordion-header" id="headingOne">
-              <button
+              <button 
+              style="background-color:#575555;color:white"
                 class="accordion-button"
                 type="button"
                 data-bs-toggle="collapse"
@@ -30,7 +31,7 @@
                       *ngFor="let card of cards"
                       class="list-group-item col-md-2"
                     >
-                      <i class="fas fa-credit-card"></i> {{ card.cardNumber }}
+                      <i class="fas fa-credit-card"></i> {{card.cardNumber.replace(card.cardNumber.slice(2,12),"**********")}}
                     </li>
                   </ul>
                 </div>
@@ -45,7 +46,7 @@
                     background-color: #f5ca29;
                   "
                 >
-                  {{ currentCard.cardNumber }} numaralı kartı seçtiniz.
+                {{currentCard.cardNumber.replace(currentCard.cardNumber.slice(2,12),"**********")}} numaralı kartı seçtiniz.
                 </div>
               </div>
             </div>

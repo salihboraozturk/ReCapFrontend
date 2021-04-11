@@ -18,8 +18,6 @@ thead {
   transition: 0.5s ease;
   cursor: pointer;
   margin-top: 10px;
-  
-
 }
 .card-image {
   grid-area: image;
@@ -34,9 +32,8 @@ thead {
   width: 300px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color:white;
+  background-color: white;
 }
-
 
 /* .card-image .card-image img .card-stats .card-text p :hover {
 visibility: hidden;
@@ -45,35 +42,30 @@ visibility: hidden;
 .card-text {
   grid-area: text;
   height: 150px;
-  
 }
 .card-text p {
   text-align: center;
   color: #12161c;
   font-size: 15px;
-
-  
 }
 .card-text h2 {
-
-    text-align: left;
+  text-align: left;
   font-size: 30px;
   color: #f5ca29;
-  position:absolute;
-  top:240px;
-  font-family:12px "Lucida Grande","LucidaGrande",Arial,sans-serif;
+  position: absolute;
+  top: 240px;
+  font-family: 12px "Lucida Grande", "LucidaGrande", Arial, sans-serif;
 }
 .card-text h3 {
-    margin-top:10px ;
-    text-align: left;
-    font-family:12px "Lucida Grande","LucidaGrande",Arial,sans-serif;
-  color:white;
+  margin-top: 10px;
+  text-align: left;
+  font-family: 12px "Lucida Grande", "LucidaGrande", Arial, sans-serif;
+  color: white;
 }
 .card-text h6 {
-    margin-top:35px;
-    text-align: left;
+  margin-top: 35px;
+  text-align: left;
   color: white;
-  
 }
 .card-stats {
   grid-area: stats;
@@ -83,9 +75,8 @@ visibility: hidden;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background: #f5ca29;
-  width:300px;
+  width: 300px;
   height: 40px;
-  
 }
 .card-stats .stat {
   display: flex;
@@ -101,28 +92,27 @@ visibility: hidden;
   text-align: center;
   color: black;
   height: 40px;
-  font-family:12px "Lucida Grande","LucidaGrande",Arial,sans-serif;
+  font-family: 12px "Lucida Grande", "LucidaGrande", Arial, sans-serif;
 }
 
 .card:hover {
   transform: scale(1.02);
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 
-/*100%*/
-
+  /*100%*/
 }
 a {
-text-decoration: none;
+  text-decoration: none;
 }
 .card .details {
   position: absolute;
   border-radius: 15px;
   top: 0;
   left: 0;
-  width: 70%;/*100%*/
+  width: 70%; /*100%*/
   height: 100%;
   background: #f5ca29;
-  transition: .5s;
+  transition: 0.5s;
   transform-origin: left;
   transform: perspective(2000px) rotateY(-90deg);
 }
@@ -148,4 +138,17 @@ text-decoration: none;
 .card .details .center h1 span {
   font-size: 14px;
   color: #262626;
+}
+
+.update button {
+  position: absolute;
+  margin: 15px 5px;
+  border: none;
+  color: #0d6efd;
+  z-index: 1;
+  background-color: transparent;
+}
+.update button:hover {
+  color: red;
+  transform: scale(1.7);
 }

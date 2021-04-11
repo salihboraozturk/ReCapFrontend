@@ -7,11 +7,13 @@ li:hover{
 }
 .fas{
   float: right;
-  background: cyan;
+  background-color: transparent;
   border: none;
+  color: #0d6efd;
+  margin-top: 3px;
   }
   .fas:hover{
-    background:red;
-  
-   
+    color: red;
+    transform: scale(1.7);
   }
+  

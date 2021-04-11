@@ -24,6 +24,7 @@
 
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div *ngFor="let car of cars | carPipe: filterCar" class="col">
+          <div *ngIf="checkAdmin()" class="update"><button routerLink="/cars/update/{{ car.carId }}" class="fas fa-cog"></button></div>
           <a routerLink="/cars/cardetail/{{ car.carId }}">
             <div class="card">
               <div class="card-image">

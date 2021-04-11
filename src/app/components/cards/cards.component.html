@@ -9,7 +9,7 @@
         <button class="delete" (click)="delete(card)"><i class="fas fa-times"></i></button>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-              <li style="text-align: center; margin-top: 50px;" class="list-group fs-2">{{ card.cardNumber }}</li>
+              <li style="text-align: center; margin-top: 50px;" class="list-group fs-2"> {{card.cardNumber.replace(card.cardNumber.slice(2,12),"**********")}}</li>
             <li style="margin-left: 120px; margin-top:0px;" class="list-group">{{ card.expirationMonth }}/{{ card.expirationYear }}</li>
             <li style="margin-left:0px; margin-top:0px;" class="list-group fs-5">
               {{ card.cardOwner }}

@@ -76,4 +76,6 @@
     color: grey;
   }
 
-  
+  .col-md-2:hover{
+cursor: pointer;
+  }

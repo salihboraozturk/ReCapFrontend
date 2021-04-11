@@ -5,6 +5,7 @@ import { Car } from 'src/app/models/car/car';
 import { CarDetail } from 'src/app/models/cardetail/cardetail';
 import { CarImage } from 'src/app/models/carimage/carImage';
 import { Color } from 'src/app/models/color/color';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { BrandService } from 'src/app/services/brand/brand.service';
 import { CarService } from 'src/app/services/car/car.service';
 import { CarImageService } from 'src/app/services/carimage/car-image.service';
@@ -23,7 +24,8 @@ export class CarComponent implements OnInit {
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
-    private carImageService:CarImageService
+    private carImageService:CarImageService,
+    private authService:AuthService
   ) {}
 
   ngOnInit(): void {
@@ -78,5 +80,8 @@ export class CarComponent implements OnInit {
     } else {
       localStorage.removeItem('foo') 
     }
+  }
+  checkAdmin(){
+    return this.authService.checkAdmin();
   }
 }
